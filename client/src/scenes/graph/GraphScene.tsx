@@ -14,6 +14,10 @@ export const GraphScene = () => {
         // retrieve the results. With the results, call
         // `graphRef.current.createGraph` and add a console.log
         // statement so you see the graph.
+        api.fetchGraph().then((graph) => {
+            console.log(graphRef.current.createGraph(graph));
+        });
+        
     }, []);
 
     useSocket("graph", (update: Lnd.GraphUpdate) => {
